@@ -64,12 +64,12 @@ async function startShortlist() {
               sbtn.click();
             }
   
-            let close = document.querySelector(
-              "#popup-modal > div > div > div.modal-header > button"
-            );
-            close.click();
           }
-  
+          
+          let close = document.querySelector(
+            "#popup-modal > div > div > div.modal-header > button"
+          );
+          close.click();
           r("done");
         }
 
