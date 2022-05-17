@@ -47,31 +47,32 @@ async function startShortlist() {
 
         if (x === undefined) {
           console.log('no score, skipping')
-          continue;
         }
-
-        let y = x.children[0];
-        console.log(x, y);
-
-        var split = y.innerText.split("/");
-        var result = parseInt(split[0], 10) / parseInt(split[1], 10);
-
-        if (result >= 0.85) {
-          // click shortlist
-          console.log("WOW");
-          let sbtn = document.getElementById("modal-btn-shortlist");
-
-          if (sbtn.innerText !== "UNSHORTLIST") {
-            sbtn.click();
+        else {
+          let y = x.children[0];
+          console.log(x, y);
+  
+          var split = y.innerText.split("/");
+          var result = parseInt(split[0], 10) / parseInt(split[1], 10);
+  
+          if (result >= 0.85) {
+            // click shortlist
+            console.log("WOW");
+            let sbtn = document.getElementById("modal-btn-shortlist");
+  
+            if (sbtn.innerText !== "UNSHORTLIST") {
+              sbtn.click();
+            }
+  
+            let close = document.querySelector(
+              "#popup-modal > div > div > div.modal-header > button"
+            );
+            close.click();
           }
-
-          let close = document.querySelector(
-            "#popup-modal > div > div > div.modal-header > button"
-          );
-          close.click();
+  
+          r("done");
         }
 
-        r("done");
       }, 2000)
     );
 
